@@ -1,0 +1,56 @@
+/* =============================================
+   Overrides globais — aplicados após main.css
+   ============================================= */
+
+/* 1. Animação do cursor _ — usa currentColor para
+      ser visível tanto no tema claro quanto escuro */
+@keyframes flicker-cursor {
+  0%, 100% { color: transparent; }
+  50%       { color: currentColor; }
+}
+.flicker {
+  animation: flicker-cursor 800ms infinite !important;
+}
+
+/* 2. Botão "voltar ao topo" — verde no tema escuro */
+[data-bs-theme=dark] .btn-scroll-top {
+  background-color: #A8FF53 !important;
+}
+[data-bs-theme=dark] .btn-scroll-top::after {
+  color: #1f1f24 !important;
+}
+[data-bs-theme=dark] .btn-scroll-top svg.progress-square path {
+  stroke: #1f1f24 !important;
+}
+
+/* 3. Scrollbar customizado — verde fino, sem fundo */
+.custom-scroll {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(168, 255, 83, 0.5) transparent;
+}
+.custom-scroll::-webkit-scrollbar {
+  width: 3px;
+}
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: rgba(168, 255, 83, 0.45);
+  border-radius: 2px;
+}
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 255, 83, 0.8);
+}
+
+/* 4. bg-card — substitui var(--tc-bg-dark-1) hardcoded.
+      Usa --tc-bg-1 que troca automático claro/escuro. */
+.bg-card {
+  background: var(--tc-bg-1) !important;
+}
+
+/* 5. bg-overlay — gradiente decorativo de fade no rodapé.
+      pointer-events:none evita que bloqueie o scroll dos filhos. */
+.bg-overlay {
+  pointer-events: none;
+}

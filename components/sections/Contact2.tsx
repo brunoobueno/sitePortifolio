@@ -75,7 +75,7 @@ export default function Contact2() {
 									<span className="text-400 fs-6">GitHub</span>
 									<h6 className="mb-0">brunoobueno</h6>
 								</div>
-								<a href="skype:SKYPENAME?add" className="position-absolute top-0 start-0 w-100 h-100" />
+								<a href="https://github.com/brunoobueno" target="_blank" rel="noopener noreferrer" className="position-absolute top-0 start-0 w-100 h-100" />
 							</div>
 							<div className="d-flex align-items-center mb-3 position-relative d-inline-flex">
 								<div className="d-inline-block">

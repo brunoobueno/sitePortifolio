@@ -4,6 +4,7 @@ import "/public/assets/css/vendors/carouselTicker.css"
 import "/public/assets/css/vendors/magnific-popup.css"
 import "/public/assets/fonts/remixicon/remixicon.css"
 import "/public/assets/css/main.css"
+import "./global.css"
 
 import type { Metadata } from "next"
 import { Urbanist, Playfair_Display, DM_Mono } from "next/font/google"

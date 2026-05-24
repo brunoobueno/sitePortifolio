@@ -1,80 +1,93 @@
 
-import Link from 'next/link'
+'use client'
 import Marquee from 'react-fast-marquee'
 
 export default function Home2() {
 	return (
 		<>
-
 			<section id="about" className="section-hero-2 position-relative pt-130 pb-3">
 				<div className="container hero-2">
-					<div className="border border-1 rounded-3">
+					{/* padding lateral e vertical explícito para evitar clipping nas bordas */}
+					<div className="border border-1 rounded-3 p-3 p-md-4 p-lg-0">
 						<div className="box-linear-animation position-relative z-1">
-							<div className="row align-items-end py-60">
-								<div className="col-lg-5 ps-lg-5 text-lg-start text-center">
-									<div className="position-relative mb-lg-0 mb-5">
-										<img src="assets/imgs/home-page-2/hero-1/people.png" alt="zelio" />
-										<div className="position-absolute end-0 top-100 translate-middle-y icon-decorate">
-											<img src="assets/imgs/home-page-2/hero-1/icon.svg" alt="zelio" />
+							<div className="row align-items-center py-60 gx-lg-0">
+
+								{/* No mobile: texto vem PRIMEIRO (order-1), terminal DEPOIS (order-2) */}
+
+								{/* Texto principal */}
+								<div className="col-lg-6 mx-lg-auto col-md-12 order-1 order-lg-2 mb-5 mb-lg-0">
+									<div className="p-lg-0 p-md-4 p-2">
+										<div className="mb-2" style={{ fontFamily: 'var(--dmMono)', fontSize: '0.78rem' }}>
+											<span className="text-primary-2">// </span>
+											<span className="text-300">Lorena, SP · Brasil · disponível</span>
+										</div>
+
+										<h1 className="fs-50 my-3">
+											Bruno <span className="text-linear-4">Bueno</span>
+											<span className="flicker">_</span>
+										</h1>
+
+										<p className="text-dark fw-medium mb-1 fs-5">Software Engineer</p>
+										<p className="text-300 mb-4" style={{ fontFamily: 'var(--dmMono)', fontSize: '0.82rem' }}>
+											Sistemas Distribuídos · IA Aplicada · DevOps &amp; Infra
+										</p>
+
+										<p className="mb-5 text-300">
+											Construo e opero sistemas que realmente rodam em produção.
+											Containers, filas, workers, LLMs locais, infraestrutura crítica.
+											Pesquisa em IA aplicada a sistemas aéreos no <span className="text-dark">ITA</span>.
+										</p>
+
+										{/* Stack marquee */}
+										<div className="overflow-hidden">
+											<Marquee className="carouselTicker carouselTicker-left position-relative z-1">
+												<ul className="carouselTicker__list">
+													{['Docker', 'Redis', 'PostgreSQL', 'Node.js', 'Python', 'Traefik', 'LLaMA', 'REST APIs', 'Coolify', 'Workers'].map(tech => (
+														<li key={tech} className="carouselTicker__item mb-1">
+															<span className="text-300 border border-1 rounded-2 px-2 py-1" style={{ fontFamily: 'var(--dmMono)', fontSize: '0.78rem' }}>
+																{tech}
+															</span>
+														</li>
+													))}
+												</ul>
+											</Marquee>
 										</div>
 									</div>
 								</div>
-								<div className="col-lg-6 mx-lg-auto col-md-12">
-									<div className="p-lg-0 p-md-8 p-3">
-										<div className="text-secondary-2 d-flex align-items-center">
-											&lt;span&gt;
-											<div className="text-dark">
-												<div className="typewriter">
-													<h1 className="fs-6 fw-medium">Olá, Sou o Bruno</h1>
-												</div>
+
+								{/* Terminal window */}
+								<div className="col-lg-5 ps-lg-5 order-2 order-lg-1 text-lg-start text-center">
+									<div className="position-relative">
+										<div className="border border-1 rounded-3 overflow-hidden bg-card">
+											{/* barra estilo terminal macOS */}
+											<div className="d-flex align-items-center gap-2 px-4 py-3 border-bottom">
+												<span className="rounded-circle" style={{ width: 10, height: 10, background: '#ff5f57', display: 'inline-block', flexShrink: 0 }} />
+												<span className="rounded-circle" style={{ width: 10, height: 10, background: '#febc2e', display: 'inline-block', flexShrink: 0 }} />
+												<span className="rounded-circle" style={{ width: 10, height: 10, background: '#28c840', display: 'inline-block', flexShrink: 0 }} />
+												<span className="text-300 ms-3 fs-7" style={{ fontFamily: 'var(--dmMono)' }}>bruno@skyweaver: ~</span>
 											</div>
-											&lt;/span&gt;
-										</div>
-										<h1 className="fs-50 my-3">Dev <span className="text-linear-4">{'{'}Full Stack{'}'}</span>Web, Mobile &amp; Desktop <span className="flicker">_</span></h1>
-										<p className="mb-6 text-secondary-2">&lt;p&gt;<span className="text-dark">Com expertise em tecnologias avançadas como</span> <span className="text-secondary-2">IA</span>, <span className="text-secondary-2">React</span>, <span className="text-secondary-2">NodeJS</span>, e <span className="text-secondary-2">Laravel</span><span className="text-dark">... Eu forneço soluções inovadoras e robustas.</span>&lt;/p&gt;</p>
-										<div className="row">
-											<div className="col-7">
-												{/* Carausel Scroll */}
-												<Marquee className="carouselTicker carouselTicker-left position-relative z-1 mt-lg-0 mt-8">
-													<ul className="carouselTicker__list ">
-														<li className="carouselTicker__item">
-															<Link href="#" className="brand-logo icon_60 icon-shape rounded-3">
-																<img src="assets/imgs/home-page-2/hero-1/icon-1.svg" alt="brand" />
-															</Link>
-														</li>
-														<li className="carouselTicker__item">
-															<Link href="#" className="brand-logo icon_60 icon-shape rounded-3">
-																<img src="assets/imgs/home-page-2/hero-1/icon-2.svg" alt="brand" />
-															</Link>
-														</li>
-														<li className="carouselTicker__item">
-															<Link href="#" className="brand-logo icon_60 icon-shape rounded-3">
-																<img src="assets/imgs/home-page-2/hero-1/icon-3.svg" alt="brand" />
-															</Link>
-														</li>
-														<li className="carouselTicker__item">
-															<Link href="#" className="brand-logo icon_60 icon-shape rounded-3">
-																<img src="assets/imgs/home-page-2/hero-1/icon-4.svg" alt="brand" />
-															</Link>
-														</li>
-														<li className="carouselTicker__item">
-															<Link href="#" className="brand-logo icon_60 icon-shape rounded-3">
-																<img src="assets/imgs/home-page-2/hero-1/icon-5.svg" alt="brand" />
-															</Link>
-														</li>
-													</ul>
-												</Marquee>
-											</div>
-											<div className="col-5 d-flex align-items-end">
-												<span className="fs-6 text-300 mb-2"></span>
+											{/* corpo do terminal */}
+											<div className="p-4 text-start" style={{ fontFamily: 'var(--dmMono)', fontSize: 'clamp(0.74rem, 1.5vw, 0.84rem)', lineHeight: 1.75 }}>
+												<p className="mb-0 text-300"><span className="text-primary-2">$</span> cat perfil.txt</p>
+												<p className="text-dark mb-0 ps-3">Bruno Bueno — Engenheiro de Software</p>
+												<p className="text-300 mb-3 ps-3">Lorena, SP · Brasil · disponível para projetos</p>
+
+												<p className="mb-0 text-300"><span className="text-primary-2">$</span> ./o-que-construo.sh</p>
+												<p className="mb-0 ps-3"><span className="text-primary-2">→</span> <span className="text-dark">Backends e APIs que sustentam produção</span></p>
+												<p className="mb-0 ps-3"><span className="text-primary-2">→</span> <span className="text-dark">Infraestrutura com Docker e containers</span></p>
+												<p className="mb-0 ps-3"><span className="text-primary-2">→</span> <span className="text-dark">IA rodando localmente (sem custo, sem nuvem)</span></p>
+												<p className="mb-3 ps-3"><span className="text-primary-2">→</span> <span className="text-dark">Automação que resolve problemas reais</span></p>
+
+												<p className="mb-0 text-300"><span className="text-primary-2">$</span> ./números.sh</p>
+												<p className="mb-0 ps-3 text-dark">+20 serviços rodando em produção</p>
+												<p className="mb-3 ps-3 text-300">Mestrado no ITA · pesquisa com drones</p>
+
+												<p className="mb-0 text-300"><span className="text-primary-2">$</span><span className="flicker"> _</span></p>
 											</div>
 										</div>
-										<Link href="assets/resume.pdf" className="btn me-2 text-300 ps-0 mt-4" target="_blank">
-											<i className="ri-download-line text-primary-2" />
-											[ Baixar Currículo ]
-										</Link>
 									</div>
 								</div>
+
 							</div>
 						</div>
 					</div>
@@ -84,7 +97,6 @@ export default function Home2() {
 					<img className="bg-d" src="assets/imgs/home-page-2/hero-1/bg-dark.png" alt="zelio" />
 				</div>
 			</section>
-
 		</>
 	)
 }
